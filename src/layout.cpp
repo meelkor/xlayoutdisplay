@@ -60,6 +60,8 @@ int layout(const Settings &settings) {
     // arrange mirrored or left to right
     if (settings.mirror) {
         mirrorOutputs(outputs);
+    } else if (settings.vertical) {
+        verticalOutputs(outputs);
     } else {
         ltrOutputs(outputs);
     }

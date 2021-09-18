@@ -33,6 +33,9 @@ const std::shared_ptr<Output> activateOutputs(const std::list<std::shared_ptr<Ou
 // arrange outputs left to right at optimal mode; will mutate contents
 void ltrOutputs(const std::list<std::shared_ptr<Output>> &outputs);
 
+// arrange outputs top to bottom keeping center identical; will mutate contents
+void verticalOutputs(const std::list<std::shared_ptr<Output>> &outputs);
+
 // arrange outputs so that they all mirror at highest common mode; will mutate contents
 // throws runtime_error:
 //   no common mode found

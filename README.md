@@ -4,14 +4,14 @@ Detects and arranges outputs for an X display, using [XRandR](https://www.x.org/
 
 Highest refresh rate of the output's preferred resolution are used.
 
-Left-to-right ordering is used, unless the user specifies mirrorred outputs.
+Left-to-right ordering is used, unless the user specifies mirrorred or vertical outputs.
 
 Laptop displays (eDP*) are disabled when the lid is closed.
 
 ## Usage
 
 ```
-Arranges outputs in a left to right manner, using highest resolution and refresh.
+Arranges outputs, using highest resolution and refresh.
 DPI is calculated based on the first or primary output's EDID information and rounded to the nearest 12.
 Laptop outputs are turned off when the lid is closed.
 
@@ -27,6 +27,7 @@ CLI, $XDG_CONFIG_HOME/.xlayoutdisplay, $HOME/.xlayoutdisplay and /etc/xlayoutdis
   -d [ --dpi ] arg       DPI override
   -r [ --rate ] arg      Refresh rate override
   -m [ --mirror ]        mirror outputs using the lowest common resolution
+  -y [ --vertical ]      arrange outputs in a vertical layout
   -o [ --order ] arg     order of outputs, repeat as needed
   -p [ --primary ] arg   primary output
   -q [ --quiet ]         suppress feedback

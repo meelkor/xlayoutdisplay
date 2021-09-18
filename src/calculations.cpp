@@ -98,6 +98,41 @@ void ltrOutputs(const list<shared_ptr<Output>> &outputs) {
     }
 }
 
+void verticalOutputs(const list<shared_ptr<Output>> &outputs) {
+    int furthestXCenter = 0;
+    int ypos = 0;
+
+    // find x-axis center furthest from left edge
+    for (const auto &output : outputs) {
+
+        if (output->desiredActive) {
+
+            output->desiredMode = output->optimalMode;
+
+            int center = output->desiredMode->width / 2;
+
+            if (center > furthestXCenter) {
+
+                furthestXCenter = center;
+            }
+        }
+    }
+
+    // only then start arranging outputs
+    for (const auto &output : outputs) {
+
+        if (output->desiredActive) {
+            int xpos = furthestXCenter - output->desiredMode->width / 2;
+
+            // position the screen
+            output->desiredPos = make_shared<Pos>(xpos, ypos);
+
+            // next position
+            ypos += output->desiredMode->height;
+        }
+    }
+}
+
 void mirrorOutputs(const list<shared_ptr<Output>> &outputs) {
 
     // find the first active output

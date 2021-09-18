@@ -30,6 +30,7 @@ public:
               info(vm.count("info")),
               noop(vm.count("noop")),
               mirror(vm.count("mirror")),
+              vertical(vm.count("vertical")),
               order(vm.count("order") ? vm["order"].as<std::vector<std::string>>() : std::vector<std::string>()),
               primary(vm.count("primary") ? vm["primary"].as<std::string>() : std::string()),
               quiet(vm.count("quiet")) {}
@@ -39,6 +40,7 @@ public:
     const bool info;
     const bool noop;
     const bool mirror;
+    const bool vertical;
     const std::vector<std::string> order;
     const std::string primary;
     const bool quiet;

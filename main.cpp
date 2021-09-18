@@ -36,6 +36,7 @@ int main(int argc, const char **argv) {
                 ("dpi,d", po::value<long>(), "DPI override")
                 ("rate,r", po::value<long>(), "Refresh rate override")
                 ("mirror,m", "mirror outputs using the lowest common resolution")
+                ("vertical,y", "arrange outputs in a vertical layout")
                 ("order,o", po::value<vector<string>>(), "order of outputs, repeat as needed")
                 ("primary,p", po::value<string>(), "primary output")
                 ("quiet,q", "suppress feedback");
@@ -70,7 +71,7 @@ int main(int argc, const char **argv) {
 
         // usage
         if (vm.count("help")) {
-            cout << "Arranges outputs in a left to right manner, using highest resolution and refresh.\n"
+            cout << "Arranges outputs, using highest resolution and refresh.\n"
                     "DPI is calculated based on the first or primary output's EDID information and rounded to the nearest 12.\n"
                     "Laptop outputs are turned off when the lid is closed.\n"
                     "\n"
